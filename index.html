@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css"/>
+    <title class="title-pomodoro">Pomodoro App</title>
+</head>
+
+<body>
+    <main class="container">
+        <header class="title">
+            <h2>Pomodoro App Is Focus</h2>
+        </header>
+
+        <section class="options">
+            <button class="pomodoro"> Pomodoro </button>
+            <button class="break"> Break </button>
+            <button class="long-break"> Long Break</button>
+            <button class="add"> Add Value </button>
+        </section> 
+
+        <section class="form-formation">
+            <form class="form visible">
+                <label>
+                    Hour
+                    <input type="number" placeholder="Hours"  class="hr" value="0" />
+                </label>
+                <label>
+                    Minutes
+                    <input type="number" placeholder="Minutes"  class="min" value="0"/>
+                </label>
+                <label>
+                    Seconds
+                    <input type="number" placeholder="Seconds" class="sec" value="0"/>
+                </label>
+                <button type="submit" class="btn-input">Add</button>
+            </form>
+        </section>
+        <section class="timer-formation">
+            <div class="timer-border"> 
+                <div class="timer">
+                    <p class="hours time"> 00 </p>
+                    <p class="minutes time"> 00 </p>
+                    <p class="seconds time"> 00 </p>
+                </div>
+            </div>
+            <span class="count" value="0"> </span>
+            <div class="btn">
+                <button class="initial"> Init </button>
+                <button class="pause"> Pause </button>
+                <button class="reset"> Reset </button>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
