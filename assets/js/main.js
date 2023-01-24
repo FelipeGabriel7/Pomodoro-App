@@ -2,7 +2,7 @@
 let reset = document.querySelector(`.reset`);
 let form = document.querySelector(`.form`);
 let init = document.querySelector(`.initial`);
-let pause = document.querySelector(`.pause`)
+let pause = document.querySelector(`.pause`);
 
 // Time and Breaks
 let pomodoroTime = document.querySelector(`.pomodoro`);
@@ -48,7 +48,7 @@ function isToggleMenu() {
 // Pomodoro
 
 function pomodoroFun() {
-    pomodoroTime.addEventListener(`click`, () => {
+  pomodoroTime.addEventListener(`click`, () => {
     timeValues.hour = 0;
     timeValues.min = 25;
     timeValues.sec = 0;
@@ -58,17 +58,12 @@ function pomodoroFun() {
     minutes.textContent =
       timeValues.min < 10 ? `0` + timeValues.min : timeValues.min;
     seconds.textContent =
-        timeValues.sec < 10 ? `0` + timeValues.sec : timeValues.sec;
-    });
-  
+      timeValues.sec < 10 ? `0` + timeValues.sec : timeValues.sec;
+  });
 }
 
-
-pomodoroFun()
-
-
 function breakPomodoro() {
-    breakL.addEventListener(`click`, () => {
+  breakL.addEventListener(`click`, () => {
     timeValues.hour = 0;
     timeValues.min = 5;
     timeValues.sec = 0;
@@ -82,10 +77,8 @@ function breakPomodoro() {
   });
 }
 
-breakPomodoro()
-
 function longBreakPomodoro() {
-    longBreak.addEventListener(`click`, () => {
+  longBreak.addEventListener(`click`, () => {
     timeValues.hour = 0;
     timeValues.min = 15;
     timeValues.sec = 0;
@@ -96,26 +89,16 @@ function longBreakPomodoro() {
       timeValues.min < 10 ? `0` + timeValues.min : timeValues.min;
     seconds.innerHTML =
       timeValues.sec < 10 ? `0` + timeValues.sec : timeValues.sec;
-    });
-  
-    
-
+  });
 }
 
-longBreakPomodoro()
-
 function pomodoroTimeAdd() {
-
-
-
   add.addEventListener(`click`, (e) => {
-
     e.preventDefault();
 
     timeValues.hour = inputHr.value;
     timeValues.min = inputMin.value;
     timeValues.sec = inputSec.value;
-
 
     hour.innerHTML =
       timeValues.hour < 10 ? `0` + timeValues.hour : timeValues.hour;
@@ -123,25 +106,20 @@ function pomodoroTimeAdd() {
       timeValues.min < 10 ? `0` + timeValues.min : timeValues.min;
     seconds.innerHTML =
       timeValues.sec < 10 ? `0` + timeValues.sec : timeValues.sec;
-
-  })
-
-
+  });
 }
 
 // Count Init
 function initCount() {
-
-
-
   let interval;
+  let audio = document.createElement(`source`);
 
   init.addEventListener(`click`, () => {
     interval = setInterval(() => {
-
       if (timeValues.hour <= 0 && timeValues.min <= 0 && timeValues.sec <= 0) {
-        clearInterval(interval , 0)
-        return alert(` Contagem encerrada`)
+        clearInterval(interval, 0);
+        document.title = `Pomodoro is Break`
+        return alert(` Contagem encerrada`);
       }
 
       if (timeValues.sec <= 0) {
@@ -157,22 +135,30 @@ function initCount() {
         timeValues.min < 10 ? `0` + timeValues.min : timeValues.min;
       seconds.innerHTML =
         timeValues.sec < 10 ? `0` + timeValues.sec : timeValues.sec;
-
     }, 1000);
 
+
+    setInterval(() => {
+        document.title = hour.innerHTML + ` : ` + minutes.innerHTML + ` : ` + seconds.innerHTML
+    } , 1000)
   });
 
-
   pause.addEventListener(`click`, () => {
-    clearInterval(interval, 0)
-  })
+    clearInterval(interval, 0);
 
-
+    audio.setAttribute(
+      `autoplay`,
+      `assets/audios/mixkit-digital-clock-digital-alarm-buzzer-992.wav`
+    );
+  });
 }
 
 
 
 
+breakPomodoro();
+longBreakPomodoro();
+pomodoroFun();
 initCount();
 pomodoroTimeAdd();
 isToggleMenu();

@@ -23,8 +23,6 @@ body{
     margin: 5em;
     display: flex;
     gap: 3rem;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -111,8 +109,12 @@ body{
 }
 
 
-.form button{
-    width: 80%;
+.form button , .add-btn-task{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%;
     border-radius: 0.5rem;
     padding: 0.5rem;
     border: none;
@@ -166,6 +168,7 @@ body{
 }
 
 .btn {
+    margin: 0 auto;
     width: 100%;
     gap: 1rem;
     display: flex;
@@ -200,19 +203,6 @@ body{
 .btn button:nth-child(3){
     background: rgb(233, 155, 10);
 }
-
-@keyframes rotate{
-    0%{
-        transition: 0.4s all ease-in;
-        border: 5px solid #f44;
-        transform: rotate(0deg);
-    }100%{
-        transition: 0.4s all linear;
-        transform: rotate(360deg);
-        border: 5px solid #88ef;
-    }
-}
-
 
 .time:nth-child(1)::before{
     content: '';
@@ -275,6 +265,83 @@ body{
         margin: 0 auto;
         width: 100%;
     }
-
-   
+  
 }
+
+/* Tasks */
+
+.container-todo{
+    margin-top: 5em;
+}
+
+.todo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.title-task{
+    width: 80%;
+    font-size: 1.5em;
+    border-bottom: 1px solid rgb(155, 155, 155);
+}
+
+
+.todo-form{
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    border-radius: 0.5rem;
+}
+
+.todo-form input{
+    background: #eee;
+}
+
+.todo-form button{
+    background: #f14;
+    color: #eee;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.todo-form input , .todo-form button{
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.taskItem{
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem #444;
+    border-radius: 0.8rem;
+    background: #eee;
+    transition: 0.5s all ease-in-out;
+    color: #444;
+    font-weight: 600;
+}
+
+
+.taskItem:hover{
+    transition: 0.5s all ease-in-out;
+    background: rgb(4, 4, 51);
+    box-shadow: 0.1rem 0.1rem 0.5rem rgb(32, 32, 32);
+    color: #fff;
+}
+
+
+.delete{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.4em;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
